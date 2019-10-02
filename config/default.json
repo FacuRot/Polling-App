@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb://facu:facu123@ds111082.mlab.com:11082/farandulapp",
+  "secretOrKey": "dasecrettoken"
+}
