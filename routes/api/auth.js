@@ -8,8 +8,8 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 
 // @route   GET api/auth
-// @desc    test route
-// @access  public
+// @desc    get the user
+// @access  private
 router.get("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
