@@ -65,7 +65,7 @@ router.post(
 // @access  private
 router.get("/", auth, async (req, res) => {
   try {
-    const carrozas = await Carroza.find();
+    const carrozas = await Carroza.find().select("-votos");
 
     res.status(200).json(carrozas);
   } catch (error) {
@@ -102,6 +102,45 @@ router.post("/votar", auth, async (req, res) => {
     await user.save();
 
     res.status(200).send("Success");
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route   GET api/carrozas/votos
+// @desc    obtener el total de los votos
+// @access  private
+router.get("/votos", auth, async (req, res) => {
+  try {
+    const carrozas = await Carroza.find();
+
+    let votos = 0;
+    carrozas.forEach(carroza => {
+      votos += carroza.votos;
+    });
+
+    res.status(200).json(votos);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route   GET api/carrozas/resultados
+// @desc    obtener la lista de carrozas con los resultados
+// @access  private
+router.get("/resultados", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    if (!user.isAdmin) {
+      return res
+        .status(401)
+        .json({ errors: [{ msg: "No tienes permiso para hacer esto" }] });
+    }
+
+    const carrozas = await Carroza.find().sort({ votos: -1 });
+    return res.status(200).json(carrozas);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server Error");

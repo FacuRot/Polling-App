@@ -10,6 +10,7 @@ import Alert from "./components/layout/Alert";
 import Carrozas from "./components/Carrozas";
 import AddCarroza from "./components/add-carroza/AddCarroza";
 import VotoEmitido from "./components/VotoEmitido";
+import Resultados from "./components/Resultados";
 // Redux
 import { Provider } from "react-redux";
 import store from "./store";
@@ -38,11 +39,8 @@ const App = () => {
               <Route exact path="/register" component={Register} />
               <PrivateRoute exact path="/carrozas" component={Carrozas} />
               <PrivateRoute exact path="/add-carroza" component={AddCarroza} />
-              <PrivateRoute
-                exact
-                path="/voto-emitido"
-                component={VotoEmitido}
-              />
+              <Route exact path="/voto-emitido" component={VotoEmitido} />
+              <PrivateRoute exact path="/resultado" component={Resultados} />
             </Switch>
           </section>
         </Fragment>

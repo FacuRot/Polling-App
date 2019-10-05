@@ -99,6 +99,9 @@ img {
 .material-icons.md-48 {
   font-size: 48px;
 }
+.material-icons.success {
+  color: var(--success-color);
+}
 
 /* Utilities */
 .container {

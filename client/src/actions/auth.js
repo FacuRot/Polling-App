@@ -9,6 +9,7 @@ import {
   LOGOUT
 } from "./types";
 import { setAlert } from "./alert";
+import { clearCarrozas } from "./carrozas";
 import setAuthToken from "../utils/setAuthToken";
 
 // Load User
@@ -100,4 +101,5 @@ export const logout = () => dispatch => {
   dispatch({
     type: LOGOUT
   });
+  dispatch(clearCarrozas());
 };

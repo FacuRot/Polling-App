@@ -1,8 +1,15 @@
-import { GET_CARROZAS } from "../actions/types";
+import {
+  GET_CARROZAS,
+  GET_VOTOS,
+  GET_RESULTADOS,
+  CLEAR_CARROZAS
+} from "../actions/types";
 
 const initialState = {
   carrozas: [],
-  loading: true
+  resultados: [],
+  loading: true,
+  votos: null
 };
 
 export default function(state = initialState, action) {
@@ -14,6 +21,26 @@ export default function(state = initialState, action) {
         ...state,
         carrozas: payload,
         loading: false
+      };
+    case GET_VOTOS:
+      return {
+        ...state,
+        votos: payload,
+        loading: false
+      };
+    case GET_RESULTADOS:
+      return {
+        ...state,
+        resultados: payload,
+        loading: false
+      };
+    case CLEAR_CARROZAS:
+      return {
+        ...state,
+        carrozas: [],
+        resultados: [],
+        loading: true,
+        votos: null
       };
     default:
       return state;
