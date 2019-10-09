@@ -39,7 +39,11 @@ const App = () => {
               <Route exact path="/register" component={Register} />
               <PrivateRoute exact path="/carrozas" component={Carrozas} />
               <PrivateRoute exact path="/add-carroza" component={AddCarroza} />
-              <Route exact path="/voto-emitido" component={VotoEmitido} />
+              <PrivateRoute
+                exact
+                path="/voto-emitido"
+                component={VotoEmitido}
+              />
               <PrivateRoute exact path="/resultado" component={Resultados} />
             </Switch>
           </section>

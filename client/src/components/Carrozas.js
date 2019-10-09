@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCarrozas, votar, getVotos } from "../actions/carrozas";
 import Spinner from "./layout/Spinner";
 import LogoComuna from "../img/logocomuna-02.png";
+import Modal from "./layout/Modal";
 
 const Carrozas = ({
   getCarrozas,
@@ -35,40 +36,39 @@ const Carrozas = ({
       <Spinner />
     </div>
   ) : (
-    <div className="container">
-      <h1 className="large">Votá tu carroza favorita</h1>
-      <p className="lead">{`Votos emitidos hasta el momento ${
-        votos !== null ? votos : 0
-      }`}</p>
-      {carrozas.map(carroza => (
-        <div className="item">
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <section>
-              <strong>{carroza.name}</strong> <br />
-              {carroza.curso}
-            </section>
-            {user !== null && !user.voto && (
-              <button
-                onClick={() => vote(carroza._id)}
-                className="btn btn-primary"
-              >
-                Votar
-              </button>
-            )}
+    <Fragment>
+      <Modal />
+      <div className="container">
+        <h1 className="large">Votá tu carroza favorita</h1>
+        <p className="lead">{`Votos emitidos hasta el momento ${
+          votos !== null ? votos : 0
+        }`}</p>
+        {carrozas.map(carroza => (
+          <div className="item">
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <section>
+                <strong>{carroza.name}</strong> <br />
+                {carroza.curso}
+              </section>
+              {user !== null && !user.voto && (
+                <button
+                  onClick={() => vote(carroza._id)}
+                  className="btn btn-primary"
+                >
+                  Votar
+                </button>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
-      {user !== null && user.isAdmin && (
-        <Link to="/add-carroza" className="btn btn-light">
-          Agregar Carroza
-        </Link>
-      )}
-      <img
-        src={LogoComuna}
-        alt="Comuna de Gdor. Crespo"
-        style={{ width: "200px", margin: "auto", display: "block" }}
-      />
-    </div>
+        ))}
+        {user !== null && user.isAdmin && (
+          <Link to="/add-carroza" className="btn btn-light">
+            Agregar Carroza
+          </Link>
+        )}
+        <img id="logoComuna" src={LogoComuna} alt="Comuna de Gdor. Crespo" />
+      </div>
+    </Fragment>
   );
 };
 

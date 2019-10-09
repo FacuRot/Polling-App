@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
+import LogoComuna from "../../img/logocomuna-02.png";
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -85,6 +86,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       <p className="my-1">
         Ya tenés una cuenta? <Link to="/login">Iniciar Sesión</Link>
       </p>
+      <img id="logoComuna" src={LogoComuna} alt="Comuna Gdor. Crespo" />
     </div>
   );
 };

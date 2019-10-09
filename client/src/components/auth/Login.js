@@ -3,6 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth";
+import LogoComuna from "../../img/logocomuna-02.png";
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -60,6 +61,7 @@ const Login = ({ login, isAuthenticated }) => {
       <p className="my-1">
         Todavia no tenes una cuenta? <Link to="/register">Registrate</Link>
       </p>
+      <img id="logoComuna" src={LogoComuna} alt="Comuna Gdor. Crespo" />
     </div>
   );
 };
