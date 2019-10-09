@@ -13,8 +13,7 @@ const Modal = () => {
     <div
       style={{
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
+        justifyContent: "center"
       }}
     >
       <div className="modal">
