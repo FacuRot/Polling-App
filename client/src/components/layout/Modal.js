@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import LogoComuna from "../../img/logocomuna-02.png";
 
 const Modal = () => {
   const [display, setDisplay] = useState({
@@ -19,21 +18,19 @@ const Modal = () => {
       <div className="modal">
         <div
           style={{
+            height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: "flex-end",
             alignItems: "center"
           }}
         >
-          <h1>
-            El premio Mención Dorada es otorgado por la{" "}
-            <span>Comuna de Gobernador Crespo</span>
-          </h1>
-          <img id="logoComuna" src={LogoComuna} alt="Comuna de Gdor. Crespo" />
           <button
             onClick={() => setDisplay(false)}
             className="btn btn-primary my-1"
-            style={{ display: "flex" }}
+            style={{
+              display: "flex"
+            }}
           >
             Entendido{" "}
             <i className="material-icons" style={{ marginLeft: "3px" }}>

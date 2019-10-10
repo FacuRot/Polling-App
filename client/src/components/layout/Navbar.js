@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
+import LogoComuna from "../../img/logocomuna-02.png";
 
 const Navbar = ({ logout, auth: { isAuthenticated, loading, user } }) => {
   const authLinks = (
@@ -34,7 +35,19 @@ const Navbar = ({ logout, auth: { isAuthenticated, loading, user } }) => {
   return (
     <nav className="navbar bg-dark">
       <h1>
-        <Link to="/">Mención Dorada</Link>
+        <Link
+          to="/"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        >
+          <img src={LogoComuna} alt="Comuna de Gdor. Crespo" />
+          <span className="hide-sm" style={{ marginLeft: "5px" }}>
+            La Carroza de la Gente
+          </span>
+        </Link>
       </h1>
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guessLinks}</Fragment>

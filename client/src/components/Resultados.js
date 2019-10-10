@@ -29,7 +29,13 @@ const Resultados = ({
     <div className="container">
       {resultados.map(carroza => (
         <div className="item">
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "black"
+            }}
+          >
             <section>
               <strong>{carroza.name}</strong> <br />
               {carroza.curso}

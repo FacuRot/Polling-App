@@ -9,8 +9,7 @@ const Landing = () => {
           <div className="landing-inner">
             <h1 className="x-large">La Carroza de la Gente</h1>
             <p className="lead">
-              Votá tu carroza favorita para que sea la ganadora de la Mención
-              Dorada
+              Votá tu carroza favorita para que sea la ganadora
             </p>
             <div className="buttons">
               <Link to="/register" className="btn btn-primary">

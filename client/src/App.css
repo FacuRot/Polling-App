@@ -109,7 +109,7 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
-  margin-top: 6rem;
+  margin-top: 7rem;
   margin-bottom: 3rem;
 }
 
@@ -318,12 +318,16 @@ button {
   opacity: 0.9;
 }
 
+.navbar img {
+  width: 100px;
+}
+
 .navbar ul {
   display: flex;
 }
 
 .navbar a {
-  color: #fff;
+  color: #ffffff;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
@@ -356,13 +360,19 @@ button {
 }
 
 /* Items */
+.items-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .item {
-  border-width: 1.5px 0 1.5px 0; /* top right bottom left */
-  border-style: solid;
-  border-color: var(--primary-color);
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding: 1rem;
+  margin: 0;
+  padding: 0rem;
+  width: 320px;
+  height: 320px;
+  color: white;
 }
 
 /* logo Comuna */
@@ -376,22 +386,23 @@ button {
 
 /* Modal */
 .modal {
-  width: 90%;
+  width: 95%;
+  height: 52vh;
   position: absolute;
-  background: #f6f4f2;
+  background: url("./img/modal-banner.png") no-repeat center center/cover;
   border: 1px solid #ccc;
   transition: 1.1s ease-out;
   -webkit-box-shadow: 5px 5px 15px 5px #000000;
   box-shadow: 5px 5px 15px 5px #000000;
   filter: blur(0);
   margin-top: 8rem;
-  padding: 1.5rem;
+  padding: 0;
 }
 
 /* Mobile Styles */
 @media (max-width: 700px) {
   .container {
-    margin-top: 8rem;
+    margin-top: 8.5rem;
   }
 
   .hide-sm {
@@ -417,6 +428,10 @@ button {
     text-align: center;
   }
 
+  .navbar img {
+    width: 70px;
+  }
+
   .navbar ul {
     text-align: center;
     justify-content: center;
@@ -436,5 +451,17 @@ button {
     margin: auto;
     display: block;
     margin-top: 2.3rem;
+  }
+
+  /* Items */
+  .items-container {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .item {
+    width: 100%;
   }
 }
