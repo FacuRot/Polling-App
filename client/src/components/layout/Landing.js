@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import logoComuna from "../../img/logocomuna-02.png";
 
 const Landing = () => {
   return (
@@ -22,6 +23,11 @@ const Landing = () => {
             <small style={{ color: "grey" }}>
               Para votar es necesario que te registres en la aplicación
             </small>
+            <img
+              src={logoComuna}
+              alt="Comuna de Gdor. Crespo"
+              style={{ width: "120px", marginTop: "3rem", marginBottom: "0" }}
+            />
           </div>
         </div>
       </section>

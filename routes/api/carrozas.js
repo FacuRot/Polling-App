@@ -98,6 +98,20 @@ router.post("/votar", auth, async (req, res) => {
         .json({ errors: [{ msg: "No se encontró la carroza" }] });
     }
 
+    const current = new Date();
+    const sabado = new Date("2019-10-19T20:00:00");
+    const domingo = new Date("2019-10-20T18:00:00");
+    if (current < sabado || current > domingo) {
+      return res.status(400).json({
+        errors: [
+          {
+            msg:
+              "La votación estara disponible desde el sabado 19 a las 20hs hasta el domingo 20 a las 18hs"
+          }
+        ]
+      });
+    }
+
     user.voto = true;
     await user.save();
 
