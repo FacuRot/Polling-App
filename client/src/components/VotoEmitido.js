@@ -1,5 +1,5 @@
 import React from "react";
-import LogoComuna from "../img/logocomuna-02.png";
+import LogoComuna from "../img/logoazul-01.png";
 
 const VotoEmitido = () => {
   return (

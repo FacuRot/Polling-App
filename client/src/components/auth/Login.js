@@ -3,7 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth";
-import LogoComuna from "../../img/logocomuna-02.png";
+import LogoComuna from "../../img/logoazul-01.png";
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({

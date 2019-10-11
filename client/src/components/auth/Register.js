@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
-import LogoComuna from "../../img/logocomuna-02.png";
+import LogoComuna from "../../img/logoazul-01.png";
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({

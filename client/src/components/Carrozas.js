@@ -4,16 +4,16 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCarrozas, votar, getVotos } from "../actions/carrozas";
 import Spinner from "./layout/Spinner";
-import LogoComuna from "../img/logocomuna-02.png";
+import LogoComuna from "../img/logoazul-01.png";
 import Modal from "./layout/Modal";
-import china from "../img/china.png";
-import brasil from "../img/brasil.png";
-import rusia from "../img/rusia.png";
-import mexico from "../img/mexico.png";
-import egipto from "../img/egipto.png";
-import india from "../img/india.png";
-import eeuu from "../img/eeuu.png";
-import japon from "../img/japon.png";
+import china from "../img/paginafarandula-08.png";
+import brasil from "../img/paginafarandula-05.png";
+import rusia from "../img/paginafarandula-07.png";
+import mexico from "../img/paginafarandula-06.png";
+import egipto from "../img/paginafarandula-02.png";
+import india from "../img/paginafarandula-09.png";
+import eeuu from "../img/paginafarandula-03.png";
+import japon from "../img/paginafarandula-04.png";
 
 const Carrozas = ({
   getCarrozas,
@@ -55,45 +55,43 @@ const Carrozas = ({
             votos !== null ? votos : 0
           }`}</p>
         </div>
-        <div className="items-container">
-          {carrozas.map((carroza, i) => (
+        {carrozas.map((carroza, i) => (
+          <div
+            className="item"
+            style={{
+              background: `url(${paises[i]}) no-repeat center center/cover`
+            }}
+          >
             <div
-              className="item"
               style={{
-                background: `url(${paises[i]}) no-repeat center center/cover`
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center"
               }}
             >
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  textAlign: "center"
-                }}
-              >
-                <section>
-                  <h3 style={{ fontSize: "25px" }}>
-                    {carroza.name.toUpperCase()}
-                  </h3>
-                  <p>
-                    <strong>{carroza.curso}</strong>
-                  </p>
-                </section>
-                {user !== null && !user.voto && (
-                  <button
-                    onClick={() => vote(carroza._id)}
-                    className="btn btn-primary"
-                  >
-                    Votar
-                  </button>
-                )}
-              </div>
+              <section>
+                <h3 style={{ fontSize: "25px" }}>
+                  {carroza.name.toUpperCase()}
+                </h3>
+                <p>
+                  <strong>{carroza.curso}</strong>
+                </p>
+              </section>
+              {user !== null && !user.voto && (
+                <button
+                  onClick={() => vote(carroza._id)}
+                  className="btn btn-primary"
+                >
+                  Votar
+                </button>
+              )}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
         {user !== null && user.isAdmin && (
           <Link to="/add-carroza" className="btn btn-light">
             Agregar Carroza
