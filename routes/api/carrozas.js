@@ -87,17 +87,6 @@ router.post("/votar", auth, async (req, res) => {
         .json({ errors: [{ msg: "No puedes votar mas de una vez" }] });
     }
 
-    let carroza = await Carroza.updateOne(
-      { _id: req.body.id },
-      { $inc: { votos: 1 } }
-    );
-
-    if (!carroza) {
-      return res
-        .status(400)
-        .json({ errors: [{ msg: "No se encontró la carroza" }] });
-    }
-
     const current = new Date();
     const sabado = new Date("2019-10-19T20:00:00");
     const domingo = new Date("2019-10-20T18:00:00");
@@ -110,6 +99,17 @@ router.post("/votar", auth, async (req, res) => {
           }
         ]
       });
+    }
+
+    let carroza = await Carroza.updateOne(
+      { _id: req.body.id },
+      { $inc: { votos: 1 } }
+    );
+
+    if (!carroza) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: "No se encontró la carroza" }] });
     }
 
     user.voto = true;
