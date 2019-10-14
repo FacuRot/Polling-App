@@ -26,7 +26,7 @@ const Landing = () => {
             <img
               src={logoComuna}
               alt="Comuna de Gdor. Crespo"
-              style={{ width: "120px", marginTop: "3rem", marginBottom: "0" }}
+              className="logoComunaLanding"
             />
           </div>
         </div>

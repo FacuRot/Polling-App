@@ -377,6 +377,12 @@ button {
   margin-top: 3rem;
 }
 
+.logoComunaLanding {
+  width: 120px;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
 /* Modal */
 .modal {
   width: 95%;
@@ -444,6 +450,11 @@ button {
     margin: auto;
     display: block;
     margin-top: 2.3rem;
+  }
+
+  .logoComunaLanding {
+    width: 95px;
+    margin-top: 0.5rem;
   }
 
   /* Items */
