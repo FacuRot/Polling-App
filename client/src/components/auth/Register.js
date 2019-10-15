@@ -11,10 +11,11 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     name: "",
     email: "",
     password: "",
-    password2: ""
+    password2: "",
+    tel: ""
   });
 
-  const { name, email, password, password2 } = formData;
+  const { name, email, password, password2, tel } = formData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,7 +26,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     if (password !== password2) {
       setAlert("Las contraseñas no coinciden", "danger");
     } else {
-      register({ name, email, password });
+      register({ name, email, password, tel });
     }
   };
 
@@ -60,6 +61,16 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             onChange={e => onChange(e)}
             required
           />
+        </div>
+        <div className="form-group">
+          <input
+            type="number"
+            placeholder="Número de tel."
+            name="tel"
+            value={tel}
+            onChange={e => onChange(e)}
+          />
+          <small>Ingrese la caracteristica de su num.</small>
         </div>
         <div className="form-group">
           <input

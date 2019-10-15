@@ -28,7 +28,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, password } = req.body;
+    const { name, email, password, tel } = req.body;
 
     try {
       let user = await User.findOne({ email });
@@ -37,16 +37,33 @@ router.post(
         return res.status(400).json({
           errors: [
             {
-              msg: "El email ingresado ya fue registrado por favor utilice otro"
+              msg:
+                "El email ingresado ya fue registrado. Por favor utilice otro"
             }
           ]
         });
       }
 
+      if (tel) {
+        user = await User.findOne({ tel });
+
+        if (user) {
+          return res.status(400).json({
+            errors: [
+              {
+                msg:
+                  "El telefono ingresado ya fue registrado. Por favor utilice otro"
+              }
+            ]
+          });
+        }
+      }
+
       user = new User({
         name,
         email,
-        password
+        password,
+        tel
       });
 
       const salt = await bcrypt.genSalt(10);
